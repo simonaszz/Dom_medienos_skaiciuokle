@@ -1,0 +1,305 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #cceeff, #f1f1f1);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+/* Bendras turinio blokas */
+.block-wrapper {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px 35px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.02);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900;
+}
+
+/* Įvesties laukų išdėstymas */
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 12px 0;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    min-width: 60%;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-row input:hover {
+    border-color: #aaa;
+}
+
+.input-row input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+.input-row input.input-valid {
+    border-color: green;
+    background-color: #e6ffe6;
+    max-width: 100%;
+}
+
+.input-row input.error {
+    border-color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+    max-width: 70%;
+}
+
+.input-row span.error {
+    color: red;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.input-row span.error:not(.show) {
+    display: none;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* Mygtukai */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    margin-right: 8px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Saulė su SVG spinduliais */
+.svg-sun-container {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+}
+
+.svg-sun {
+    width: 100%;
+    height: 100%;
+}
+
+.sun-rays line {
+    stroke: #FFD700;
+    stroke-width: 3;
+    stroke-linecap: round;
+    animation: raysPulse 2s ease-in-out infinite alternate;
+    transform-origin: 50% 50%;
+}
+
+@keyframes raysPulse {
+    0% {
+        stroke-opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        stroke-opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        stroke-opacity: 0.3;
+        transform: scale(1);
+    }
+}
+
+/* Debesys */
+.cloud {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow:
+        30px 10px 0 0 #ffffff,
+        60px 10px 0 0 #ffffff,
+        20px 20px 0 0 #ffffff,
+        40px 20px 0 0 #ffffff,
+        50px 30px 0 0 #ffffff;
+    width: 60px;
+    height: 40px;
+    animation: floatClouds 60s linear infinite;
+    z-index: 5;
+}
+
+.cloud1 {
+    top: 80px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.cloud2 {
+    top: 180px;
+    left: -200px;
+    animation-delay: 15s;
+}
+
+.cloud3 {
+    top: 140px;
+    left: -300px;
+    animation-delay: 30s;
+}
+
+@keyframes floatClouds {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(1600px);
+    }
+}
+
+
+/* Duona */
+.bread-float {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 30px;
+  background-image: url('img/bread.png'); /* tavo duonos paveikslėlis */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+  animation: floatUp 18s linear infinite;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.bread1 {
+  left: 25%;
+  animation-delay: 0s;
+}
+.bread2 {
+  left: 45%;
+  animation-delay: 6s;
+}
+.bread3 {
+  left: 70%;
+  animation-delay: 3s;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: 0;
+    opacity: 0;
+    transform: scale(0.6) translateX(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1) translateX(-15px);
+  }
+  100% {
+    bottom: 100vh;
+    opacity: 0;
+    transform: scale(1.3) translateX(10px);
+  }
+}
+
+
+
+
+
+/* Banga apačioje */
+.wave-container {
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+    margin-top: -10px;
+}
+
+.wave-container svg {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+}
+
+.wave-container path {
+    fill: #87cefa;
+    animation: waveMove 8s ease-in-out infinite;
+}
+
+@keyframes waveMove {
+    0% {
+        d: path("M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z");
+    }
+
+    50% {
+        d: path("M0,80 C300,120 900,40 1200,80 L1200,200 L0,200 Z");
+    }
+
+    100% {
+        d: path("M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z");
+    }
+}
+
+
+
+
+
+
+/* Rezultatų blokas */
+#results {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+input.shake {
+  animation: shake 0.3s;
+}
